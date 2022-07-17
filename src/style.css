@@ -1,0 +1,83 @@
+body {
+  font-family: "Kanit", sans-serif;
+  color: rgb(3, 35, 110);
+}
+
+.app {
+  width: 800px;
+  border: solid 1px #0dcaf0;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+.current-date h4 {
+  font-weight: 400;
+  margin: 20px auto;
+  line-height: 1.3;
+}
+
+.change-location {
+  margin: 10px auto;
+  text-align: right;
+}
+
+.current-weather h1 {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.day-weather {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 2;
+}
+
+.five-day-forecast {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.five-days-weather {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+.more-details-link {
+  font-size: 16px;
+  text-align: right;
+  margin: 30px 10px 10px 0;
+}
+
+.main-image {
+  width: 130px;
+}
+
+.weather-image {
+  width: 40px;
+}
+
+.forecast-image {
+  width: 40px;
+}
+
+#fahrenheit {
+  font-weight: 200;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: underline;
+}
+
+h1 a:link {
+  color: rgb(3, 35, 110);
+}
+
+h1 a:visited {
+  color: rgb(3, 35, 110);
+}
