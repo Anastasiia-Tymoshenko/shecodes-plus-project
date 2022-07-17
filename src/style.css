@@ -5,9 +5,12 @@ body {
 
 .app {
   width: 800px;
+  margin: 20px auto;
+}
+
+.container {
   border: solid 1px #0dcaf0;
   border-radius: 10px;
-  margin: 20px auto;
 }
 .current-date h4 {
   font-weight: 400;
@@ -48,6 +51,15 @@ body {
   font-size: 16px;
   text-align: right;
   margin: 30px 10px 10px 0;
+}
+
+.developer a {
+  text-decoration: none;
+}
+
+.developer {
+  font-weight: 300;
+  margin-left: 10px;
 }
 
 .main-image {
