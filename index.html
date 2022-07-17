@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather app</title>
+  </head>
+  <body>
+    
+<div class="app">
+    <div class="container">
+
+ <div class="row heading">
+        <div class="col current-date">
+          <div class="card-body">
+            <h4 class="date">
+        <span id="weekday">Monday</span> 
+          <br />
+        <span id="date">June 14, 2022</span>
+          <br />
+        <span id="time">09:00</span> 
+        </h4>
+          </div>
+        </div>
+        <div class="col change-location">
+          <div class="card-body">
+            <form class="searching-form">
+            <label for="change-location" class="form-lable">Change location</label>
+            <input type="search" class="form-control" id="search-line" placeholder="Start typing..." />
+            <input type="submit" class="btn btn-info" id="search-button" value="Search">
+            <button type="button" class="btn btn-warning" id="current-button">Current</button>
+          </form>
+          </div>
+        </div>
+
+      <div class="current-weather">
+        <h1 class="location">
+         <span id="current-location"></span> 
+          <br />
+        <span id="degrees"></span> <a href="#" class="temp" id="celsium">°C</a> | <a href="#" class="temp" id="fahrenheit">°F</a>
+          <br />
+         <span id="condition"></span> 
+        </h1>
+      </div>
+
+      <div class="day-weather">
+        <div class="row in-3-hours">
+          <div class="col time">12:00</div>
+          <div class="col temperature">15°C</div>
+          <div class="col atmosphere">
+            <img src="images/rain.jpg" alt="rain" class="weather-image">
+          </div>
+        </div>
+
+        <div class="row in-6-hours">
+          <div class="col time">15:00</div>
+          <div class="col temperature">16°C</div>
+          <div class="col atmosphere">
+            <img src="images/sun-clouds.jpg" alt="sun-clouds" class="weather-image">
+          </div>
+        </div>
+
+        <div class="row in-9-hours">
+          <div class="col time">18:00</div>
+          <div class="col temperature">11°C</div>
+          <div class="col atmosphere">
+          <img src="images/clouds.jpg" alt="clouds" class="weather-image">  
+          </div>
+        </div>
+      </div>
+
+     <h3 class="five-day-forecast">5-day forecast</h3>
+   
+      <div class="five-days-weather">
+        <div class="row dates">
+          <div class="col date">Tue 14/6</div>
+          <div class="col date">Wed 15/6</div>
+          <div class="col date">Thu 16/6</div>
+          <div class="col date">Fri 17/6</div>
+          <div class="col date">Sat 18\6</div>
+        </div>
+
+        <div class="row temperatures">
+          <div class="col temperature">17°C</div>
+          <div class="col temperature">18°C</div>
+          <div class="col temperature">21°C</div>
+          <div class="col temperature">18°C</div>
+          <div class="col temperature">20°C</div>
+       </div>
+
+        <div class="row atmosphere-images">
+          <div class="col atmosphere">
+            <img src="images/rain.jpg" alt="rain" class="forecast-image">
+          </div>
+          <div class="col atmosphere">
+            <img src="images/sun-clouds.jpg" alt="sun-clouds" class="forecast-image">
+          </div>
+          <div class="col atmosphere">
+            <img src="images/sun-clouds.jpg" alt="sun-clouds" class="forecast-image">
+          </div>
+          <div class="col atmosphere">
+            <img src="images/rain.jpg" alt="rain" class="forecast-image">
+          </div>
+          <div class="col atmosphere">
+            <img src="images/sun.jpg" alt="sun" class="forecast-image">
+          </div>
+        </div>
+
+      <div class="more-details-link">
+        <a href="https://www.accuweather.com/" class="link-info"
+          >More details
+        </a>
+      </div>
+    </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
