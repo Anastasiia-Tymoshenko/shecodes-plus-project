@@ -48,18 +48,21 @@ body {
 }
 
 .more-details-link {
-  font-size: 16px;
   text-align: right;
-  margin: 30px 10px 10px 0;
+  margin-top: 20px;
 }
 
-.developer a {
+.link-info {
   text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  color: #0dcaf0;
 }
 
 .developer {
   font-weight: 300;
   margin-left: 10px;
+  font-size: 16px;
 }
 
 .main-image {
