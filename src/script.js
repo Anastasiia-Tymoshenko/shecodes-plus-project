@@ -48,51 +48,20 @@ currentTime.innerHTML = new Date().toLocaleTimeString([], {
   minute: "2-digit",
 });
 
-/* 
-//Location changing
-
-function changeLocation(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-line");
-  let currentLocation = document.querySelector("#current-location");
-  currentLocation.innerHTML = searchInput.value.toUpperCase();
-}
-
-let searchForm = document.querySelector(".searching-form");
-searchForm.addEventListener("submit", changeLocation);
-
-// Temperature unit changing
-
-function temperatureToFahrenheit(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#degrees");
-  temp.innerHTML = 57;
-}
-
-function temperatureToCelsium(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#degrees");
-  temp.innerHTML = 14;
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", temperatureToFahrenheit);
-
-let celsiumLink = document.querySelector("#celsium");
-celsiumLink.addEventListener("click", temperatureToCelsium);
-*/
-
-// !!! Week 5 HW - Search Engine - https://codesandbox.io/s/week-5-hw-search-engine-gyzyeg?file=/index.html
-
 // Search location and temperature displaying
 
 function displayWeather(response) {
+  console.log(response);
   let currentTemp = document.querySelector("#degrees");
   currentTemp.innerHTML = Math.round(response.data.main.temp);
-  let currentLocation = document.querySelector("#current-location");
+  let currentLocation = document.querySelector("#location");
   currentLocation.innerHTML = response.data.name;
   let currentCondition = document.querySelector("#condition");
   currentCondition.innerHTML = response.data.weather[0].main;
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = response.data.main.humidity;
+  let currentWind = document.querySelector("#wind");
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchLocation(location) {
@@ -132,3 +101,27 @@ function showCurrent(event) {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showCurrent);
+
+/* 
+// Temperature unit changing
+
+function temperatureToFahrenheit(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#degrees");
+  temp.innerHTML = 57;
+}
+
+function temperatureToCelsius(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#degrees");
+  temp.innerHTML = 14;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", temperatureToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", temperatureToCelsius);
+*/
+
+// !!! Week 5 HW - Search Engine - https://codesandbox.io/s/week-5-hw-search-engine-gyzyeg?file=/index.html
