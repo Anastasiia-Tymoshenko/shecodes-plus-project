@@ -57,11 +57,17 @@ function displayWeather(response) {
   let currentLocation = document.querySelector("#location");
   currentLocation.innerHTML = response.data.name;
   let currentCondition = document.querySelector("#condition");
-  currentCondition.innerHTML = response.data.weather[0].main;
+  currentCondition.innerHTML = response.data.weather[0].description;
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = response.data.main.humidity;
   let currentWind = document.querySelector("#wind");
   currentWind.innerHTML = Math.round(response.data.wind.speed);
+  let currentImage = document.querySelector("#weather-image");
+  currentImage.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  currentImage.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchLocation(location) {
