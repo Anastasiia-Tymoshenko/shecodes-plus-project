@@ -68,6 +68,8 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   currentImage.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchLocation(location) {
@@ -84,8 +86,6 @@ function changeLocation(event) {
 
 let searchForm = document.querySelector(".searching-form");
 searchForm.addEventListener("submit", changeLocation);
-
-searchLocation("Kyiv");
 
 // Current geolocation
 
@@ -108,26 +108,31 @@ function showCurrent(event) {
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showCurrent);
 
-/* 
 // Temperature unit changing
 
-function temperatureToFahrenheit(event) {
+function convertTemperatureToFahrenheit(event) {
   event.preventDefault();
   let temp = document.querySelector("#degrees");
-  temp.innerHTML = 57;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
 }
 
-function temperatureToCelsius(event) {
+function convertTemperatureToCelsius(event) {
   event.preventDefault();
   let temp = document.querySelector("#degrees");
-  temp.innerHTML = 14;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temp.innerHTML = Math.round(celsiusTemperature);
 }
+
+let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", temperatureToFahrenheit);
+fahrenheitLink.addEventListener("click", convertTemperatureToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", temperatureToCelsius);
-*/
+celsiusLink.addEventListener("click", convertTemperatureToCelsius);
 
-// !!! Week 5 HW - Search Engine - https://codesandbox.io/s/week-5-hw-search-engine-gyzyeg?file=/index.html
+searchLocation("Kyiv");

@@ -38,6 +38,17 @@ li h1 {
   width: 40px;
 }
 
+.temperature a {
+  font-size: 22px;
+  color: #0dcaf0;
+  text-decoration: none;
+}
+
+.temperature .active {
+  color: rgb(3, 35, 110);
+  cursor: default;
+}
+
 .five-day-forecast {
   text-align: center;
   margin: 30px auto;
@@ -96,13 +107,6 @@ li h1 {
   display: block;
   position: relative;
   top: 24px;
-}
-
-#celsius,
-#fahrenheit {
-  font-size: 22px;
-  color: rgb(3, 35, 110);
-  text-decoration: none;
 }
 
 #condition::first-letter {
