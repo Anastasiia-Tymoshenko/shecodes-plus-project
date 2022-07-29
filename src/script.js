@@ -48,6 +48,40 @@ currentTime.innerHTML = new Date().toLocaleTimeString([], {
   minute: "2-digit",
 });
 
+// forecast displaying
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col day-weather-forecast">
+        <p class="forecast-day">${day}</p>
+        <p class="forecast-date">30/7</p>
+        <img
+          src="http://openweathermap.org/img/wn/11d@2x.png"
+          alt="forecast-image"
+          class="forecast-image"
+          id="forecast-image"
+        />
+        <p class="forecast-temperature">
+          <span id="max-temp">21° </span
+          ><span id="min-temp"> 17°</span>
+        </p>
+      </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 // Search location and temperature displaying
 
 function displayWeather(response) {
@@ -136,3 +170,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", convertTemperatureToCelsius);
 
 searchLocation("Kyiv");
+displayForecast();
