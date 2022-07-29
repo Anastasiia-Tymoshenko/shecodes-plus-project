@@ -20,6 +20,7 @@ li h1 {
 .wrapper {
   border: solid 1px #0dcaf0;
   border-radius: 10px;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -39,31 +40,43 @@ li h1 {
 }
 
 .temperature a {
-  font-size: 22px;
-  color: #0dcaf0;
+  font-size: 20px;
+  color: rgb(3, 35, 110);
+  opacity: 0.7;
   text-decoration: none;
 }
 
 .temperature .active {
   color: rgb(3, 35, 110);
   cursor: default;
+  font-size: 22px;
+  opacity: 1;
 }
 
-.five-day-forecast {
+.weather-forecast-heading {
   text-align: center;
   margin: 30px auto;
 }
 
-.five-days-weather {
+.day-weather-forecast {
   text-align: center;
   font-size: 18px;
-  font-weight: 200;
-  line-height: 1.5;
+  font-weight: 300;
+  line-height: 0.6;
+}
+
+.forecast-day,
+.forecast-date,
+#min-temp {
+  opacity: 0.7;
+}
+
+.forecast-temperature {
+  margin-top: 5px;
 }
 
 .more-details-link {
   text-align: right;
-  margin-top: 20px;
   margin-bottom: 0;
 }
 
