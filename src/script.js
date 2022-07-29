@@ -50,7 +50,8 @@ currentTime.innerHTML = new Date().toLocaleTimeString([], {
 
 // forecast displaying
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
 
   let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
@@ -82,6 +83,12 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
+function getForecast(coordinates) {
+  let apiKey = "bbaf82554bcf373d103d5f004dcf90e3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Search location and temperature displaying
 
 function displayWeather(response) {
@@ -104,6 +111,8 @@ function displayWeather(response) {
   currentImage.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function searchLocation(location) {
@@ -170,4 +179,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", convertTemperatureToCelsius);
 
 searchLocation("Kyiv");
-displayForecast();
