@@ -79,8 +79,8 @@ function displayForecast(response) {
           id="forecast-image"
         />
         <p class="forecast-temperature">
-          <span id="max-temp">${Math.round(forecastDay.temp.max)} </span
-          ><span id="min-temp"> ${Math.round(forecastDay.temp.min)}</span>
+          <span id="max-temp">${Math.round(forecastDay.temp.max)}° </span
+          ><span id="min-temp"> ${Math.round(forecastDay.temp.min)}°</span>
         </p>
       </div>
     `;
@@ -89,7 +89,6 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 function getForecast(coordinates) {
@@ -101,7 +100,6 @@ function getForecast(coordinates) {
 // Search location and temperature displaying
 
 function displayWeather(response) {
-  console.log(response);
   let currentTemp = document.querySelector("#degrees");
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   let currentLocation = document.querySelector("#location");
@@ -118,8 +116,6 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   currentImage.setAttribute("alt", response.data.weather[0].description);
-
-  celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
 }
@@ -144,8 +140,6 @@ searchForm.addEventListener("submit", changeLocation);
 function showCurrentLocation(position) {
   let currentLatitude = position.coords.latitude;
   let currentLongitude = position.coords.longitude;
-  console.log(currentLatitude);
-  console.log(currentLongitude);
   let apiKey = "bbaf82554bcf373d103d5f004dcf90e3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
 
@@ -159,32 +153,5 @@ function showCurrent(event) {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showCurrent);
-
-// Temperature unit changing
-
-function convertTemperatureToFahrenheit(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#degrees");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function convertTemperatureToCelsius(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#degrees");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temp.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertTemperatureToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertTemperatureToCelsius);
 
 searchLocation("Kyiv");
