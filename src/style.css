@@ -96,10 +96,8 @@ li h1 {
 }
 
 #celsius {
-  font-size: 20px;
+  font-size: 40px;
   color: rgb(3, 35, 110);
-  opacity: 0.7;
-  text-decoration: none;
 }
 
 #weather-image {
